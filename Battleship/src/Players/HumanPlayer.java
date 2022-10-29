@@ -24,7 +24,5 @@ public class HumanPlayer extends Player{
      //   ShotsFired.add(shot);
     //    return shot;
    // }
-
-    public void handleShot(){}
     public void checkFleet(){};
 }
