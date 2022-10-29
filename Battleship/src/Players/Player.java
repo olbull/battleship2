@@ -1,6 +1,7 @@
 package Players;
-import Coordinate.InputBehavior;
-import Coordinate.ShotCoordinate;
+import Coordinate.*;
+import Ships.*;
+
 import Fleet.Fleet;
 import java.util.ArrayList;
 
@@ -14,7 +15,7 @@ public abstract class Player {
     public ShotCoordinate shoot(){ // returns object of type ShotCoordinate with coordinates in grid after adding it to ShotsFired
         ShotCoordinate shot = new ShotCoordinate(ib);
         for (ShotCoordinate s : ShotsFired){
-            if (shot.equals(s)){
+            if (shot.equals(s)) {
                 System.out.println("You have already shot at this target!\nChoose another one...\n");
                 return shoot();
             }
@@ -23,5 +24,8 @@ public abstract class Player {
         return shot;
     }
 
-    public abstract void handleShot();
+    public Object[] handleShot(ShotCoordinate sc) {// sc is in grid and was not already shot i.e. valid
+        Object[] res;
+        return null;
+        };
 }
