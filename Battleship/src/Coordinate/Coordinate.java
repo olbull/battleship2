@@ -1,5 +1,5 @@
 package Coordinate;
 
-abstract class Coordinate {
+public abstract class Coordinate {
 InputBehavior ib;
 }
