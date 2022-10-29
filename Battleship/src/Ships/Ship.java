@@ -1,17 +1,15 @@
 package Ships;
+import Coordinate.InputBehavior;
 import Coordinate.ShipCoordinate;
 
 public abstract class Ship {
-    int length;
-    char letter;
-    int hits;
-    BoatState state; //implement state pattern!
-    ShipCoordinate coordinates;
+    public int length;
+    public char letter;
+    boolean state; //implement state pattern!
+    ShipCoordinate coordinate;
 
-    void placeShip(ShipCoordinate sc) {
-        this.coordinates = sc;
-    }
 
-    void hit() {
-    }
+    public ShipCoordinate placeShip(){
+        return null;
+    };
 }
