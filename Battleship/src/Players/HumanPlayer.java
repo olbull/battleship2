@@ -11,6 +11,7 @@ import Coordinate.ShotCoordinate;
 public class HumanPlayer extends Player{
     Fleet fleet;
 
+
     // Attribute isAlive?
 
     public HumanPlayer(){
