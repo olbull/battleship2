@@ -1,9 +1,14 @@
 package Ships;
 
+import Coordinate.ShipCoordinate;
+
 public class PatrolBoat extends Ship {
     public PatrolBoat(){
         this.length = 2;
         this.letter = 'P';
-        this.state = BoatState.INTACT;
+    }
+
+    public ShipCoordinate placeShip(){
+        return null;
     }
 }
