@@ -48,6 +48,14 @@ public abstract class Grid {
         }
     }
 
+    public void addShip(ShipCoordinate shipco, char letter){
+        for (int i = shipco.y1; i < shipco.y2 + 1; i ++){
+            for (int j = shipco.x1; j < shipco.x2 + 1; j++){
+                this.gridStructure[i][j] = letter;
+            }
+        }
+    }
+
      public void editArrayShot(NotSunkResult nsr){
         this.gridStructure[nsr.shotco.y][nsr.shotco.x] = gridSymbols.get(nsr.state);
      };

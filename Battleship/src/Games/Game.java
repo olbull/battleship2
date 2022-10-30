@@ -24,8 +24,8 @@ public class Game { //Singleton!
         this.human = new HumanPlayer();
         this.cpu = new cpuPlayer();
 
-        og = human.placefleet();
-        tg = cpu.placefleet();
+        og = human.placeFleet();
+        tg = cpu.placeFleet();
 
         runGameRandom();
     }

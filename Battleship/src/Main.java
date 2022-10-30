@@ -3,13 +3,14 @@ import Coordinate.*;
 import Fleet.*;
 import Grids.*;
 import Ships.*;
+import Games.Game;
 
 import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
-
-        Fleet a = new Fleet();
+        new Game();
+        /*Fleet a = new Fleet();
         System.out.println("Iterator Test");
         Iterator<Ship> iter = a.iterator();
         while (iter.hasNext()) {
@@ -26,10 +27,10 @@ public class Main {
         //ShotCoordinate shot1 = p1.shoot();
         // ShotCoordinate shot2 = p1.shoot();
 
-        TargetGrid firstOne = new TargetGrid();
+        /*TargetGrid firstOne = new TargetGrid();
         OceanGrid secondOne = new OceanGrid();
         firstOne.draw();
-        secondOne.draw();
+        secondOne.draw();*/
         //firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 's');
         // firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'p');
         // firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'l');
@@ -37,7 +38,7 @@ public class Main {
         // firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'e');
         // firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'n');
         // firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'e');
-        for (int i = 0; i < 6; i++) {
+       /* for (int i = 0; i < 6; i++) {
             firstOne.draw();
             secondOne.draw();
             firstOne.editArrayShot(new ShotCoordinate(new HumanBehavior()), 'o');
@@ -46,5 +47,6 @@ public class Main {
         firstOne.draw();
         secondOne.draw();
 
+    }*/
     }
 }

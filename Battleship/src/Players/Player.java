@@ -47,7 +47,7 @@ public abstract class Player {
                     if (ship instanceof Carrier) {
                         state = ShotStates.SUNKC;
                     }
-                    ShipCoordinate shipco = ship.getShipCoordinate();
+                    ShipCoordinate shipco = ship.getCoordinate();
                     return new SunkResult(state, shipco);
                 }
             }
@@ -57,10 +57,10 @@ public abstract class Player {
 
     public boolean isAlive(){
         for (Ship ship : this.fleet){
-            if(ship.isSunk()){
-                return false;
+            if(! ship.isSunk()){
+                return true;
             }
         }
-        return true;}
+        return false;}
 }
 
