@@ -50,10 +50,6 @@ public class Fleet implements Iterable<Ships.Ship>{
         }
     }
 
-    public boolean checkShips(){
-        // Iterator<Ship> iterator = fleet.iterator();
-    return false;}
-
     public void initializeFleet(){
         fleet.add(new Carrier());
         fleet.add(new BattleShip());

@@ -29,10 +29,6 @@ public abstract class Player {
         return shot;
     }
 
-    public boolean isAlive(){
-        return this.fleet.checkShips();
-    }
-
     public SunkResult isSunk(ShotCoordinate sc) {// sc is in grid and was not already shot i.e. valid
         ShotStates state = ShotStates.MISS;
         for (Ship ship : this.fleet) {
@@ -58,5 +54,13 @@ public abstract class Player {
         }
         return new SunkResult(state, null);
     }
+
+    public boolean isAlive(){
+        for (Ship ship : this.fleet){
+            if(ship.isSunk()){
+                return false;
+            }
+        }
+        return true;}
 }
 
