@@ -1,9 +1,11 @@
 package Players;
 import Coordinate.*;
+import Grids.Grid;
 import Ships.*;
+import ShotResults.*;
 
 import Fleet.Fleet;
-import ShotResults.HitResult;
+import ShotResults.ShotResult;
 import ShotResults.ShotStates;
 
 import java.util.ArrayList;
@@ -11,9 +13,9 @@ import java.util.ArrayList;
 public abstract class Player {
     Fleet fleet;
     protected ArrayList<ShotCoordinate> ShotsFired;
-    // Attribute isAlive?
     protected InputBehavior ib;
 
+    public Grid grid;
 
     public ShotCoordinate shoot() { // returns object of type ShotCoordinate with coordinates in grid after adding it to ShotsFired
         ShotCoordinate shot = new ShotCoordinate(ib);
@@ -27,21 +29,34 @@ public abstract class Player {
         return shot;
     }
 
+    public boolean isAlive(){
+        return this.fleet.checkShips();
+    }
 
-
-    public HitResult handleHit(ShotCoordinate sc) {// sc is in grid and was not already shot i.e. valid
+    public SunkResult isSunk(ShotCoordinate sc) {// sc is in grid and was not already shot i.e. valid
         ShotStates state = ShotStates.MISS;
-
         for (Ship ship : this.fleet) {
-            if (ship.isSunk()) {
-                if (this.fleet.checkShips()) {state = ShotStates.SUNKFLEET;}
-                if (ship instanceof PatrolBoat) {state = ShotStates.SUNKPB;}
-                if (ship instanceof Submarine) {state = ShotStates.SUNKSM;}
-                if (ship instanceof BattleShip) {state = ShotStates.SUNKBS;}
-                if (ship instanceof Carrier) {state = ShotStates.SUNKC;}
-                ShipCoordinate shipco = ship.getShipCoordinate();}
-
+            if (ship.isHit(sc)) {
+                state = ShotStates.HIT;
+                if (ship.isSunk()) {
+                    if (ship instanceof PatrolBoat) {
+                        state = ShotStates.SUNKPB;
+                    }
+                    if (ship instanceof Submarine) {
+                        state = ShotStates.SUNKSM;
+                    }
+                    if (ship instanceof BattleShip) {
+                        state = ShotStates.SUNKBS;
+                    }
+                    if (ship instanceof Carrier) {
+                        state = ShotStates.SUNKC;
+                    }
+                    ShipCoordinate shipco = ship.getShipCoordinate();
+                    return new SunkResult(state, shipco);
+                }
             }
-        return new HitResult(state, shipco);
+        }
+        return new SunkResult(state, null);
     }
 }
+

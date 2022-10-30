@@ -1,7 +1,9 @@
 package Grids;
 import Coordinate.ShipCoordinate;
 import Coordinate.ShotCoordinate;
+import ShotResults.NotSunkResult;
 import ShotResults.ShotStates;
+import ShotResults.SunkResult;
 
 import java.util.HashMap;
 
@@ -46,13 +48,13 @@ public abstract class Grid {
         }
     }
 
-     public void editArrayShot(ShotStates state, ShotCoordinate sc){
-        this.gridStructure[sc.y][sc.x] = gridSymbols.get(state);
+     public void editArrayShot(NotSunkResult nsr){
+        this.gridStructure[nsr.shotco.y][nsr.shotco.x] = gridSymbols.get(nsr.state);
      };
-     public void editArrayShip(ShotStates state, ShipCoordinate sc){
-         for (int i = sc.y1; i < sc.y2 + 1; i ++){
-             for (int j = sc.x1; j < sc.x2 + 1; j++){
-                 this.gridStructure[i][j] = gridSymbols.get(state);
+     public void editArrayShip(SunkResult sr){
+         for (int i = sr.shipco.y1; i < sr.shipco.y2 + 1; i ++){
+             for (int j = sr.shipco.x1; j < sr.shipco.x2 + 1; j++){
+                 this.gridStructure[i][j] = gridSymbols.get(sr.state);
              }
          }
      }
