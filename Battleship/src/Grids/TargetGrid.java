@@ -7,7 +7,7 @@ public class TargetGrid extends Grid {
     }
 
     protected void printHeader(){
-        System.out.println("====== TARGET GRID ======");
+        System.out.println("===== TARGET  GRID =====");
     }
 
 }
