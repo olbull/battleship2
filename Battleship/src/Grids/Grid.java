@@ -7,8 +7,8 @@ import ShotResults.SunkResult;
 import java.util.HashMap;
 
 public abstract class Grid {
-    private char[][] gridStructure = new char[10][10];
-    private HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<ShotStates, Character>();
+    private final char[][] gridStructure = new char[10][10];
+    private final HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<>();
 
 
     //private ArrayList<ShipCoordinate> ships; //oder besser als zweites, bereits platziertes Array?
@@ -58,7 +58,7 @@ public abstract class Grid {
 
      public void editArrayShot(NotSunkResult nsr){
         this.gridStructure[nsr.shotco.y][nsr.shotco.x] = gridSymbols.get(nsr.state);
-     };
+     }
      public void editArrayShip(SunkResult sr){
          for (int i = sr.shipco.y1; i < sr.shipco.y2 + 1; i ++){
              for (int j = sr.shipco.x1; j < sr.shipco.x2 + 1; j++){

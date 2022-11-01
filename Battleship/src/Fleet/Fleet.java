@@ -3,7 +3,6 @@ import java.util.ArrayList;
 
 import Coordinate.HumanBehavior;
 import Coordinate.InputBehavior;
-import Coordinate.ShipCoordinate;
 import Ships.*;
 import java.util.*;
 import java.lang.Iterable;

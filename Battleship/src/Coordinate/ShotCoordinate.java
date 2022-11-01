@@ -1,7 +1,7 @@
 package Coordinate;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+
 
 public class ShotCoordinate extends Coordinate {
 
@@ -22,16 +22,6 @@ public class ShotCoordinate extends Coordinate {
         return this.x == ((ShotCoordinate)sc) .x && this.y == ((ShotCoordinate)sc) .y;
         }
 
-/*
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
- */
 }
 
 
