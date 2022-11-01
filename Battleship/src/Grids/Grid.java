@@ -29,22 +29,23 @@ public abstract class Grid {
     }
     public void draw(){
         printHeader();
-        System.out.println("   A B C D E F G H I J   ");
-        System.out.println("  ---------------------   ");
+        System.out.println("  A B C D E F G H I J   ");
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+   ");
         printBody();
-        System.out.println("  ---------------------   ");
-        System.out.println("   A B C D E F G H I J   ");
+        System.out.println(" +-+-+-+-+-+-+-+-+-+-+   ");
+        System.out.println("  A B C D E F G H I J   ");
+        System.out.println("=======================");
         System.out.println();
     }
 
     void printBody(){
         for (int i = 0; i < 10; i++){
-            System.out.print(i + " |");
+            System.out.print(i + "|"); // System.out.print(i + " |");
             for (int j = 0; j < 10; j++){
                 System.out.print(String.valueOf(gridStructure[i][j]));
                 System.out.print("|");
             }
-            System.out.println(" " + i);
+            System.out.println(i); // System.out.println(" " + i);
         }
     }
 
