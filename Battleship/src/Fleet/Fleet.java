@@ -43,8 +43,8 @@ public class Fleet implements Iterable<Ships.Ship>{
         //Iterator<Ship> iter = fleet.iterator();
         for (Ship shipPlaced : fleet) {
             if (shipPlaced.getCoordinate() != null && shipPlaced != ship) {
-                if (((ship.getCoordinate().getX1() >= shipPlaced.getCoordinate().getX1() - 1 && ship.getCoordinate().getX1() <= shipPlaced.getCoordinate().getX2() + 1) || (ship.getCoordinate().getX2() >= shipPlaced.getCoordinate().getX1() - 1 && ship.getCoordinate().getX2() <= shipPlaced.getCoordinate().getX2() + 1))
-                        && ((ship.getCoordinate().getY1() >= shipPlaced.getCoordinate().getY1() - 1 && ship.getCoordinate().getY1() <= shipPlaced.getCoordinate().getY2() + 1) || (ship.getCoordinate().getY2() >= shipPlaced.getCoordinate().getY1() - 1 && ship.getCoordinate().getY2() <= shipPlaced.getCoordinate().getY2() + 1))
+                if (((ship.getCoordinate().x1 >= shipPlaced.getCoordinate().x1 - 1 && ship.getCoordinate().x1 <= shipPlaced.getCoordinate().x2 + 1) || (ship.getCoordinate().x2 >= shipPlaced.getCoordinate().x1 - 1 && ship.getCoordinate().x2 <= shipPlaced.getCoordinate().x2 + 1))
+                        && ((ship.getCoordinate().y1 >= shipPlaced.getCoordinate().y1 - 1 && ship.getCoordinate().y1 <= shipPlaced.getCoordinate().y2 + 1) || (ship.getCoordinate().y2 >= shipPlaced.getCoordinate().y1 - 1 && ship.getCoordinate().y2 <= shipPlaced.getCoordinate().y2 + 1))
                 ) {
                     if(ib instanceof HumanBehavior) {
                         System.out.println("You cannot place ships next to each other!\nTry again...");

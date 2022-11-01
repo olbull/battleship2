@@ -98,7 +98,7 @@ public class Game { //Singleton!
 
     }
 
-    private boolean playAgain(){
+    public static boolean playAgain(){
         System.out.println("Would you like play again? Type YES or NO...");
         Scanner InputScanner = new Scanner(System.in);
         String stringInput = InputScanner.nextLine();

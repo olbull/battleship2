@@ -41,11 +41,11 @@ public abstract class Ship {
     }
 
     public boolean isHit(ShotCoordinate sc) {
-        if (this.coordinate.getX1() <= sc.getX() && sc.getX() <= this.coordinate.getX2() && this.coordinate.getY1() == sc.getY()) {
+        if (this.coordinate.x1 <= sc.x && sc.y <= this.coordinate.x2 && this.coordinate.y1 == sc.y) {
             this.hits += 1;
             return true;
         }
-        if (this.coordinate.getY1() <= sc.getY() && sc.getY() <= this.coordinate.getY2() && this.coordinate.getX1() == sc.getX()) {
+        if (this.coordinate.y1 <= sc.y && sc.y <= this.coordinate.y2 && this.coordinate.x1 == sc.x) {
             this.hits += 1;
             return true;
         }
