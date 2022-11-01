@@ -25,8 +25,7 @@ public class HumanPlayer extends Player{
 
     public OceanGrid placeFleet(){
         OceanGrid og = new OceanGrid();
-        TargetGrid tg = new TargetGrid();
-        tg.draw(); og.draw();
+        og.draw();
         for(Ship ship: fleet) {
             ShipCoordinate temp = ship.placeShip(this.ib);
             boolean control = fleet.placementControl(ship, this.ib);

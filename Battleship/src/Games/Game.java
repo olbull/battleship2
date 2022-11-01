@@ -30,6 +30,8 @@ public class Game { //Singleton!
         this.translation = new HashMap<Integer, Character>();
         setTranslation();
         //tg.draw(); og.draw();
+        TargetGrid tgBegin = new TargetGrid();
+        tgBegin.draw();
 
         og = human.placeFleet();
         tg = cpu.placeFleet();
