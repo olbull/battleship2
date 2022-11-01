@@ -1,6 +1,7 @@
 package Fleet;
 import java.util.ArrayList;
 
+import Coordinate.HumanBehavior;
 import Coordinate.InputBehavior;
 import Coordinate.ShipCoordinate;
 import Ships.*;
@@ -16,6 +17,7 @@ public class Fleet implements Iterable<Ships.Ship>{
     public Fleet() {
         initializeFleet();
     }
+
 
     @Override
     public Iterator<Ship> iterator() {
@@ -35,14 +37,18 @@ public class Fleet implements Iterable<Ships.Ship>{
         return iter;
     }
 
-    public boolean placementControl(Ship ship) {
+
+
+    public boolean placementControl(Ship ship, InputBehavior ib) {
         //Iterator<Ship> iter = fleet.iterator();
         for (Ship shipPlaced : fleet) {
             if (shipPlaced.getCoordinate() != null && shipPlaced != ship) {
                 if (((ship.getCoordinate().getX1() >= shipPlaced.getCoordinate().getX1() - 1 && ship.getCoordinate().getX1() <= shipPlaced.getCoordinate().getX2() + 1) || (ship.getCoordinate().getX2() >= shipPlaced.getCoordinate().getX1() - 1 && ship.getCoordinate().getX2() <= shipPlaced.getCoordinate().getX2() + 1))
                         && ((ship.getCoordinate().getY1() >= shipPlaced.getCoordinate().getY1() - 1 && ship.getCoordinate().getY1() <= shipPlaced.getCoordinate().getY2() + 1) || (ship.getCoordinate().getY2() >= shipPlaced.getCoordinate().getY1() - 1 && ship.getCoordinate().getY2() <= shipPlaced.getCoordinate().getY2() + 1))
                 ) {
-                    System.out.println("You cannot place ships next to each other!\nTry again...");
+                    if(ib instanceof HumanBehavior) {
+                        System.out.println("You cannot place ships next to each other!\nTry again...");
+                    }
                     return false;
                 }
             }

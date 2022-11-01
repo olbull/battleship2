@@ -34,17 +34,17 @@ public class HumanBehavior implements InputBehavior {
     public ArrayList<Integer> generateShipCoordinate(){
         ArrayList<Integer> output = new ArrayList<Integer>();
         Scanner InputScanner = new Scanner(System.in);
-        System.out.println("Enter coordinates, separated by comma.\nExample: A4,B4");
+        System.out.println("Enter coordinates, separated by a comma.\nExample: A4,B4");
         String stringInput = InputScanner.nextLine();
         char[] arrayInput = stringInput.toCharArray();
 
         if(arrayInput.length != 5){
-            System.out.println("Invalid input format! Try again...\n");
+            System.out.println("Invalid input format! Try again...");
             return generateShipCoordinate();
         }
 
         if (arrayInput[2] != ','){
-            System.out.println("Invalid input format! Try again...\n");
+            System.out.println("Invalid input format! Try again...");
             return generateShipCoordinate();
         }
 
@@ -54,7 +54,7 @@ public class HumanBehavior implements InputBehavior {
                 if (reference.containsKey(arrayInput[i])) {
                     output.add(reference.get(arrayInput[i]));
                 } else {
-                    System.out.println("X-coordinate must be in range A-J and y-coordinate must be in range 0-9!\nTry again...\n");
+                    System.out.println("X-coordinate must be an uppercase letter in A-J and Y-coordinate must be in range 0-9!\nTry again...\n");
                     return generateShipCoordinate();
                 }
             }
