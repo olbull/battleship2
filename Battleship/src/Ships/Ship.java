@@ -6,7 +6,7 @@ public abstract class Ship {
     public char letter;
     private int hits;
 
-    public ShipCoordinate coordinate;
+    private ShipCoordinate coordinate;
 
     public Ship() {
         this.hits = 0;
@@ -41,11 +41,11 @@ public abstract class Ship {
     }
 
     public boolean isHit(ShotCoordinate sc) {
-        if (this.coordinate.x1 <= sc.x && sc.x <= this.coordinate.x2 && this.coordinate.y1 == sc.y) {
+        if (this.coordinate.getX1() <= sc.getX() && sc.getX() <= this.coordinate.getX2() && this.coordinate.getY1() == sc.getY()) {
             this.hits += 1;
             return true;
         }
-        if (this.coordinate.y1 <= sc.y && sc.y <= this.coordinate.y2 && this.coordinate.x1 == sc.x) {
+        if (this.coordinate.getY1() <= sc.getY() && sc.getY() <= this.coordinate.getY2() && this.coordinate.getX1() == sc.getX()) {
             this.hits += 1;
             return true;
         }

@@ -3,7 +3,6 @@ package ShotResults;
 import Coordinate.*;
 
 public class SunkResult extends ShotResult{
-
     public final ShotStates state;
     public final ShipCoordinate shipco;
 

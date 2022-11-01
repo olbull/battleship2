@@ -1,7 +1,5 @@
 package Ships;
 
-import Coordinate.ShipCoordinate;
-
 public class Submarine extends Ship {
 
 
@@ -10,5 +8,4 @@ public class Submarine extends Ship {
         this.length = 3;
         this.letter = 'S';
     }
-
 }
