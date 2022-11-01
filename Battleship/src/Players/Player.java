@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public abstract class Player {
     Fleet fleet;
     protected ArrayList<ShotCoordinate> ShotsFired;
-    protected InputBehavior ib;
+    public InputBehavior ib;
 
     public Grid grid;
 

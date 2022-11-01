@@ -6,9 +6,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 // add design elements
 public class HumanBehavior implements InputBehavior {
-    HashMap<Character, Integer> reference = new HashMap<Character, Integer>();
+    HashMap<Character, Integer> reference;
 
     public HumanBehavior() {
+        reference = new HashMap<Character, Integer>();
         reference.put('A', 0); //HashMap wird hier gefüllt, da Coordinates.Coordinate.cpuBehavior diese nicht braucht(!) (und wir keine bessere Lösung haben...)
         reference.put('B', 1);
         reference.put('C', 2);

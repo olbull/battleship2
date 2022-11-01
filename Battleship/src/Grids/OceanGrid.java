@@ -8,7 +8,7 @@ public class OceanGrid extends Grid{
     }
 
     protected void printHeader(){
-        System.out.println("--------------------------");
+        System.out.println("------------------------");
         System.out.println();
         System.out.println("===== OCEAN  GRID ====="); // ===== OCEAN GRID =====
         //System.out.println();

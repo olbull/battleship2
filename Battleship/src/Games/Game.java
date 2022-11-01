@@ -1,6 +1,10 @@
 package Games;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+
+import Coordinate.Coordinate;
+import Coordinate.HumanBehavior;
 import Coordinate.ShotCoordinate;
 import Players.*;
 import Grids.*;
@@ -14,6 +18,8 @@ public class Game { //Singleton!
     private OceanGrid og;
     private TargetGrid tg;
 
+    private HashMap<Integer, Character> translation; // = new HashMap<Integer, Character>();
+
     HumanPlayer human; cpuPlayer cpu;
 
     public Game() {
@@ -21,6 +27,9 @@ public class Game { //Singleton!
 
         this.human = new HumanPlayer();
         this.cpu = new cpuPlayer();
+        this.translation = new HashMap<Integer, Character>();
+        setTranslation();
+        //tg.draw(); og.draw();
 
         og = human.placeFleet();
         tg = cpu.placeFleet();
@@ -28,6 +37,19 @@ public class Game { //Singleton!
         runGameRandom();
     }
 
+    private void setTranslation(){
+        translation = new HashMap<Integer, Character>();
+        translation.put(0, 'A'); //HashMap wird hier gefüllt, da Coordinates.Coordinate.cpuBehavior diese nicht braucht(!) (und wir keine bessere Lösung haben...)
+        translation.put(1, 'B');
+        translation.put(2, 'C');
+        translation.put(3, 'D');
+        translation.put(4, 'E');
+        translation.put(5, 'F');
+        translation.put(6, 'G');
+        translation.put(7, 'H');
+        translation.put(8, 'I');
+        translation.put(9, 'J');
+    }
     private void runGameRandom(){
         Random rand = new Random();
         int decider = rand.nextInt(2);
@@ -86,14 +108,25 @@ public class Game { //Singleton!
     private void cpuTurn(){
         ShotCoordinate shotco = cpu.shoot();
         SunkResult sr = human.isSunk(shotco);
+        String output = "";
         if(sr.state == ShotStates.HIT || sr.state == ShotStates.MISS) {
+            String tempCo = this.translation.get(shotco.x) + Integer.toString(shotco.y);
+
+            if (sr.state == ShotStates.HIT){
+                output = "You have been hit at " + tempCo + "!";
+            }
+            else{
+                output = "CPU Player missed your fleet at " + tempCo+ ".";
+            }
             NotSunkResult nsr = new NotSunkResult(sr.state, shotco);
             og.editArrayShot(nsr);
         }
         else{
             og.editArrayShip(sr);
+            output = "Ship sunk!!";
         }
         tg.draw(); og.draw();
+        System.out.println(output);
         gameState = human.isAlive();
 
     }

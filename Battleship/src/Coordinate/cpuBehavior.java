@@ -1,9 +1,29 @@
 package Coordinate;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Collections;
 import java.util.ArrayList;
 
 public class cpuBehavior implements InputBehavior {
+
+    public cpuBehavior() {
+
+        //this.ref = translation;
+        /*
+        reference.put(0, '0');
+        reference.put(1, '1');
+        reference.put(2, '2');
+        reference.put(3, '3');
+        reference.put(4, '4');
+        reference.put(5, '5');
+        reference.put(6, '6');
+        reference.put(7, '7');
+        reference.put(8, '8');
+        reference.put(9, '9');
+
+         */
+    }
+
     @Override
     public ArrayList<Integer> generateShipCoordinate() {
         ArrayList<Integer> output = new ArrayList<Integer>();

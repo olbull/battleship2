@@ -6,6 +6,7 @@ import Fleet.Fleet;
 import java.util.ArrayList;
 
 import Grids.OceanGrid;
+import Grids.TargetGrid;
 import Ships.Ship;
 
 import Coordinate.ShotCoordinate;
@@ -24,7 +25,8 @@ public class HumanPlayer extends Player{
 
     public OceanGrid placeFleet(){
         OceanGrid og = new OceanGrid();
-        og.draw();
+        TargetGrid tg = new TargetGrid();
+        tg.draw(); og.draw();
         for(Ship ship: fleet) {
             ShipCoordinate temp = ship.placeShip(this.ib);
             boolean control = fleet.placementControl(ship, this.ib);

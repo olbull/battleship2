@@ -19,6 +19,8 @@ public class cpuPlayer extends Player {
     }//initialize fleet, call fleet.placeFleet
 
     public TargetGrid placeFleet(){
+        //TargetGrid tg = new TargetGrid();
+        //tg.draw();
         for(Ship ship: fleet) {
             ShipCoordinate temp = ship.placeShip(this.ib);
             boolean control = fleet.placementControl(ship, this.ib);
