@@ -30,21 +30,22 @@ public class HumanBehavior implements InputBehavior {
         reference.put('8', 8);
         reference.put('9', 9);
     }
-@Override
+
+    @Override
     public ArrayList<Integer> generateShipCoordinate(){
-        ArrayList<Integer> output = new ArrayList<Integer>();
+        ArrayList<Integer> output = new ArrayList<>();
         Scanner InputScanner = new Scanner(System.in);
-        System.out.println("Enter coordinates, separated by comma.\nExample: A4,B4");
+        System.out.println("Enter coordinates, separated by a comma.\nExample: A4,B4");
         String stringInput = InputScanner.nextLine();
         char[] arrayInput = stringInput.toCharArray();
 
         if(arrayInput.length != 5){
-            System.out.println("Invalid input format! Try again...\n");
+            System.out.println("Invalid input format! Try again...");
             return generateShipCoordinate();
         }
 
         if (arrayInput[2] != ','){
-            System.out.println("Invalid input format! Try again...\n");
+            System.out.println("Invalid input format! Try again...");
             return generateShipCoordinate();
         }
 
@@ -54,29 +55,31 @@ public class HumanBehavior implements InputBehavior {
                 if (reference.containsKey(arrayInput[i])) {
                     output.add(reference.get(arrayInput[i]));
                 } else {
-                    System.out.println("X-coordinate must be in range A-J and y-coordinate must be in range 0-9!\nTry again...\n");
+                    System.out.println("X-coordinate must be an uppercase letter in A-J and Y-coordinate must be in range 0-9!\nTry again...\n");
                     return generateShipCoordinate();
                 }
             }
         }
-        if (output.get(0) == output.get(2) && output.get(1) == output.get(3)) {
+        if (output.get(0).equals(output.get(2)) && output.get(1).equals(output.get(3))) {
             System.out.println("Ship can not be placed in a single cell!\nTry again...\n");
             return generateShipCoordinate();
         }
-        if (output.get(0) != output.get(2) && output.get(1) != output.get(3)) {
+        if (! output.get(0).equals(output.get(2)) && ! output.get(1).equals(output.get(3))) {
             System.out.println("Ships need to be placed either horizontally or vertically!\nTry again...\n");
             return generateShipCoordinate();
         }
 
         // hier gilt für das Array entweder array[0] = array[2] (horizontal) oder array[1] = array[3] (vertikal)
-        if (output.get(0) == output.get(2) && output.get(1) > output.get(3)) {
+        if (output.get(0).equals(output.get(2)) && output.get(1) > output.get(3)) {
             Collections.swap(output,1,3);
         }
-        if (output.get(1) == output.get(3) && output.get(0) > output.get(2)) {
+        if (output.get(1).equals(output.get(3)) && output.get(0) > output.get(2)) {
             Collections.swap(output,0,2);
         }
         return output;
     }
+
+
     @Override
     public ArrayList<Integer> generateShotCoordinate(){
         ArrayList<Integer> output = new ArrayList<Integer>();

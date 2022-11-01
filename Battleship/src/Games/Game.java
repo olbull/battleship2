@@ -11,10 +11,11 @@ import ShotResults.SunkResult;
 
 public class Game { //Singleton!
     private boolean gameState;
-    private OceanGrid og;
-    private TargetGrid tg;
+    private /*final*/ OceanGrid og;
+    private /*final*/ TargetGrid tg;
 
-    HumanPlayer human; cpuPlayer cpu;
+    private final HumanPlayer human;
+    private final cpuPlayer cpu;
 
     public Game() {
         gameState = true;
@@ -95,11 +96,11 @@ public class Game { //Singleton!
         gameState = human.isAlive();
 
     }
-    private boolean playAgain(){
+    public static boolean playAgain(){
         System.out.println("Would you like play again? Type YES or NO...");
         Scanner InputScanner = new Scanner(System.in);
         String stringInput = InputScanner.nextLine();
-        if (stringInput == "YES"){
+        if (stringInput.equals("YES")){
             return true;
         }
         else{

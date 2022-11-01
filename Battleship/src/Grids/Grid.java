@@ -7,8 +7,8 @@ import ShotResults.SunkResult;
 import java.util.HashMap;
 
 public abstract class Grid {
-    private char[][] gridStructure = new char[10][10];
-    private HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<ShotStates, Character>();
+    private final char[][] gridStructure = new char[10][10];
+    private final HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<ShotStates, Character>();
 
 
     //private ArrayList<ShipCoordinate> ships; //oder besser als zweites, bereits platziertes Array?
@@ -43,7 +43,7 @@ public abstract class Grid {
                 System.out.print(String.valueOf(gridStructure[i][j]));
                 System.out.print("|");
             }
-            System.out.println(" " + i);
+            System.out.println(i);
         }
     }
 
