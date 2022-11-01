@@ -5,7 +5,6 @@ import Ships.*;
 import ShotResults.*;
 
 import Fleet.Fleet;
-import ShotResults.ShotResult;
 import ShotResults.ShotStates;
 
 import java.util.ArrayList;

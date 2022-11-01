@@ -1,23 +1,17 @@
 package Players;
 import Coordinate.HumanBehavior;
-import Coordinate.InputBehavior;
-import Coordinate.ShipCoordinate;
 import Fleet.Fleet;
 import java.util.ArrayList;
 
 import Grids.OceanGrid;
 import Ships.Ship;
 
-import Coordinate.ShotCoordinate;
-
 
 public class HumanPlayer extends Player{
 
-    // Attribute isAlive?
-
     public HumanPlayer(){
         this.ib = new HumanBehavior();
-        this.ShotsFired = new ArrayList<ShotCoordinate>();
+        this.ShotsFired = new ArrayList<>();
         this.grid = new OceanGrid();
         this.fleet = new Fleet();
     }

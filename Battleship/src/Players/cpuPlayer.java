@@ -1,19 +1,17 @@
 package Players;
-import Coordinate.ShipCoordinate;
+
 import Coordinate.cpuBehavior;
 import Fleet.Fleet;
 import java.util.ArrayList;
-import Coordinate.ShotCoordinate;
 import Grids.TargetGrid;
 import Ships.Ship;
 
 
 public class cpuPlayer extends Player {
-    // Attribute isAlive?
 
     public cpuPlayer(){
         this.ib = new cpuBehavior();
-        this.ShotsFired = new ArrayList<ShotCoordinate>();
+        this.ShotsFired = new ArrayList<>();
         this.grid = new TargetGrid();
         this.fleet = new Fleet();
     }//initialize fleet, call fleet.placeFleet
