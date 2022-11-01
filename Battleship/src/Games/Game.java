@@ -40,31 +40,31 @@ public class Game { //Singleton!
     }
 
     public void runGameHumanBegins(){
-        System.out.println("You begin!");
+        System.out.println("You begin!\n");
         while (gameState) {
             humanTurn();
             if (! gameState){
-                System.out.println("Game over! You won.");
+                System.out.println("Game over! You won.\n");
                 break;
             }
             cpuTurn();
             if (! gameState){
-                System.out.println("Game over! CPU won.");
+                System.out.println("Game over! CPU won.\n");
             }
         }
     }
 
     public void runGameCpuBegins(){
-        System.out.println("CPU begins!");
+        System.out.println("CPU begins!\n");
         while (gameState) {
             cpuTurn();
             if (! gameState){
-                System.out.println("Game over! CPU won.");
+                System.out.println("Game over! CPU won.\n");
                 break;
             }
             humanTurn();
             if (! gameState){
-                System.out.println("Game over! You won.");
+                System.out.println("Game over! You won.\n");
             }
         }
     }
@@ -97,11 +97,12 @@ public class Game { //Singleton!
         gameState = human.isAlive();
 
     }
-    public boolean playAgain(){
+    public static boolean playAgain(){
         System.out.println("Would you like play again? Type YES or NO...");
         Scanner InputScanner = new Scanner(System.in);
         String stringInput = InputScanner.nextLine();
-        if (stringInput == "YES"){
+        System.out.println(stringInput);
+        if (stringInput.equals("YES")){
             return true;
         }
         else{

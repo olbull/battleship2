@@ -54,7 +54,7 @@ public class HumanBehavior implements InputBehavior {
                 if (reference.containsKey(arrayInput[i])) {
                     output.add(reference.get(arrayInput[i]));
                 } else {
-                    System.out.println("X-coordinate must be in range A-J and y-coordinate must be in range 0-9!\nTry again...\n");
+                    System.out.println("X-coordinate must be an uppercase letter in A-J and Y-coordinate must be in range 0-9!\nTry again...\n");
                     return generateShipCoordinate();
                 }
             }

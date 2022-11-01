@@ -11,7 +11,4 @@ public class Submarine extends Ship {
         this.letter = 'S';
     }
 
-    public ShipCoordinate placeShip(){
-        return null;
-    }
 }

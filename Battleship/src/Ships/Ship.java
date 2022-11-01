@@ -18,7 +18,7 @@ public abstract class Ship {
         ShipCoordinate tempCord = new ShipCoordinate(ib);
         while (tempCord.x2 - tempCord.x1 != this.length - 1 && tempCord.y2 - tempCord.y1 != this.length -1){
             System.out.println("Your range must cover the length ("+ this.length +
-                    ") of your " + this.toString() + "!\nTry again...");
+                    ") of your " + this.toString() + "!\nTry again...\n");
             tempCord = new ShipCoordinate(ib);
         }
         this.coordinate = tempCord;

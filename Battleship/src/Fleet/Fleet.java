@@ -42,7 +42,7 @@ public class Fleet implements Iterable<Ships.Ship>{
                 if (((ship.getCoordinate().x1 >= shipPlaced.getCoordinate().x1 - 1 && ship.getCoordinate().x1 <= shipPlaced.getCoordinate().x2 + 1) || (ship.getCoordinate().x2 >= shipPlaced.getCoordinate().x1 - 1 && ship.getCoordinate().x2 <= shipPlaced.getCoordinate().x2 + 1))
                         && ((ship.getCoordinate().y1 >= shipPlaced.getCoordinate().y1 - 1 && ship.getCoordinate().y1 <= shipPlaced.getCoordinate().y2 + 1) || (ship.getCoordinate().y2 >= shipPlaced.getCoordinate().y1 - 1 && ship.getCoordinate().y2 <= shipPlaced.getCoordinate().y2 + 1))
                 ) {
-                    System.out.println("You cannot place ships next to each other!\nTry again...");
+                    System.out.println("You cannot place ships next to each other!\nTry again...\n");
                     return false;
                 }
             }
