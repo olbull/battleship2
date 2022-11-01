@@ -49,19 +49,19 @@ public abstract class Grid {
     }
 
     public void addShip(ShipCoordinate shipco, char letter){
-        for (int i = shipco.getY1(); i < shipco.getY2() + 1; i ++){
-            for (int j = shipco.getX1(); j < shipco.getX2() + 1; j++){
+        for (int i = shipco.y1; i < shipco.y2 + 1; i ++){
+            for (int j = shipco.x1; j < shipco.x2 + 1; j++){
                 this.gridStructure[i][j] = letter;
             }
         }
     }
 
      public void editArrayShot(NotSunkResult nsr){
-        this.gridStructure[nsr.shotco.getY()][nsr.shotco.getX()] = gridSymbols.get(nsr.state);
+        this.gridStructure[nsr.shotco.y][nsr.shotco.x] = gridSymbols.get(nsr.state);
      };
      public void editArrayShip(SunkResult sr){
-         for (int i = sr.shipco.getY1(); i < sr.shipco.getY2() + 1; i ++){
-             for (int j = sr.shipco.getX1(); j < sr.shipco.getX2() + 1; j++){
+         for (int i = sr.shipco.y1; i < sr.shipco.y2 + 1; i ++){
+             for (int j = sr.shipco.x1; j < sr.shipco.x2 + 1; j++){
                  this.gridStructure[i][j] = gridSymbols.get(sr.state);
              }
          }

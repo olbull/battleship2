@@ -5,7 +5,7 @@ import java.util.Comparator;
 
 public class ShotCoordinate extends Coordinate {
 
-    private final int x; private final int y;
+    public final int x; public final int y;
     InputBehavior ib;
 
     public ShotCoordinate(InputBehavior injectedBehavior){
@@ -22,7 +22,7 @@ public class ShotCoordinate extends Coordinate {
         return this.x == ((ShotCoordinate)sc) .x && this.y == ((ShotCoordinate)sc) .y;
         }
 
-
+/*
     public int getX() {
         return x;
     }
@@ -30,6 +30,8 @@ public class ShotCoordinate extends Coordinate {
     public int getY() {
         return y;
     }
+
+ */
 }
 
 
