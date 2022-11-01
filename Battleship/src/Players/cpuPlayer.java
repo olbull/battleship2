@@ -1,13 +1,9 @@
 package Players;
-import Coordinate.InputBehavior;
 import Coordinate.ShipCoordinate;
 import Coordinate.cpuBehavior;
 import Fleet.Fleet;
-
-import java.lang.annotation.Target;
 import java.util.ArrayList;
 import Coordinate.ShotCoordinate;
-import Grids.OceanGrid;
 import Grids.TargetGrid;
 import Ships.Ship;
 
@@ -34,3 +30,4 @@ public class cpuPlayer extends Player {
         return new TargetGrid();
     }
 }
+

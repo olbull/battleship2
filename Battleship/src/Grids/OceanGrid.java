@@ -1,6 +1,4 @@
 package Grids;
-import Coordinate.ShipCoordinate;
-import java.util.ArrayList;
 
 public class OceanGrid extends Grid{
 

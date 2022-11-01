@@ -1,18 +1,16 @@
 package Games;
 import java.util.Random;
 import java.util.Scanner;
-
 import Coordinate.ShotCoordinate;
 import Players.*;
 import Grids.*;
 import ShotResults.NotSunkResult;
-import ShotResults.ShotResult;
 import ShotResults.ShotStates;
 import ShotResults.SunkResult;
 
 
 public class Game { //Singleton!
-    boolean gameState;
+    private boolean gameState;
     private OceanGrid og;
     private TargetGrid tg;
 
@@ -30,7 +28,7 @@ public class Game { //Singleton!
         runGameRandom();
     }
 
-    public void runGameRandom(){
+    private void runGameRandom(){
         Random rand = new Random();
         int decider = rand.nextInt(2);
         if (decider == 0) {
@@ -39,7 +37,7 @@ public class Game { //Singleton!
         else{runGameHumanBegins();}
     }
 
-    public void runGameHumanBegins(){
+    private void runGameHumanBegins(){
         System.out.println("You begin!");
         while (gameState) {
             humanTurn();
@@ -54,7 +52,7 @@ public class Game { //Singleton!
         }
     }
 
-    public void runGameCpuBegins(){
+    private void runGameCpuBegins(){
         System.out.println("CPU begins!");
         while (gameState) {
             cpuTurn();
@@ -69,7 +67,7 @@ public class Game { //Singleton!
         }
     }
 
-    public void humanTurn(){
+    private void humanTurn(){
         ShotCoordinate shotco = human.shoot();
         SunkResult sr = cpu.isSunk(shotco);
         if(sr.state == ShotStates.HIT || sr.state == ShotStates.MISS) {
@@ -83,7 +81,7 @@ public class Game { //Singleton!
         gameState = cpu.isAlive();
     }
 
-    public void cpuTurn(){
+    private void cpuTurn(){
         ShotCoordinate shotco = cpu.shoot();
         SunkResult sr = human.isSunk(shotco);
         if(sr.state == ShotStates.HIT || sr.state == ShotStates.MISS) {
@@ -97,7 +95,7 @@ public class Game { //Singleton!
         gameState = human.isAlive();
 
     }
-    public boolean playAgain(){
+    private boolean playAgain(){
         System.out.println("Would you like play again? Type YES or NO...");
         Scanner InputScanner = new Scanner(System.in);
         String stringInput = InputScanner.nextLine();
