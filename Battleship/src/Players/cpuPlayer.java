@@ -20,10 +20,10 @@ public class cpuPlayer extends Player {
 
     public TargetGrid placeFleet(){
         for(Ship ship: fleet) {
-            ShipCoordinate temp = ship.placeShip(this.ib);
+            ship.placeShip(this.ib);
             boolean control = fleet.placementControl(ship, this.ib);
             while(!control){
-                temp = ship.placeShip(this.ib);
+                ship.placeShip(this.ib);
                 control = fleet.placementControl(ship, this.ib);
             }
         }
