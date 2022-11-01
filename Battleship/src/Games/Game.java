@@ -9,12 +9,13 @@ import ShotResults.ShotStates;
 import ShotResults.SunkResult;
 
 
-public class Game { //Singleton!
+public class Game {
     private boolean gameState;
-    private OceanGrid og;
-    private TargetGrid tg;
+    private final OceanGrid og;
+    private final TargetGrid tg;
 
-    HumanPlayer human; cpuPlayer cpu;
+    private final HumanPlayer human;
+    private final cpuPlayer cpu;
 
     public Game() {
         gameState = true;

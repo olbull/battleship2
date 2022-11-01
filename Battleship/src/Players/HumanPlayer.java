@@ -26,10 +26,10 @@ public class HumanPlayer extends Player{
         OceanGrid og = new OceanGrid();
         og.draw();
         for(Ship ship: fleet) {
-            ShipCoordinate temp = ship.placeShip(this.ib);
+            ship.placeShip(this.ib);
             boolean control = fleet.placementControl(ship, this.ib);
             while(!control){
-                temp = ship.placeShip(this.ib);
+                ship.placeShip(this.ib);
                 control = fleet.placementControl(ship, this.ib);
             }
             og.addShip(ship.getCoordinate(), ship.letter);

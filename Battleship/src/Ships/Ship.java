@@ -13,7 +13,7 @@ public abstract class Ship {
     }
 
 
-    public ShipCoordinate placeShip(InputBehavior ib){
+    public void placeShip(InputBehavior ib){
         if (ib instanceof HumanBehavior) {
             System.out.println("Place your " + this.getClass().getSimpleName() + " of length " + this.length +".");
             ShipCoordinate tempCord = new ShipCoordinate(ib);
@@ -23,7 +23,7 @@ public abstract class Ship {
                 tempCord = new ShipCoordinate(ib);
             }
             this.coordinate = tempCord;
-            return tempCord;
+
         }
         else{
             ShipCoordinate tempCord = new ShipCoordinate(ib);
@@ -31,7 +31,7 @@ public abstract class Ship {
                 tempCord = new ShipCoordinate(ib);
             }
             this.coordinate = tempCord;
-            return tempCord;
+
         }
 
     }
