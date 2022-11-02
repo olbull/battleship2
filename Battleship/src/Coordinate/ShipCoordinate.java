@@ -6,7 +6,7 @@ public class ShipCoordinate extends Coordinate {
     public final int y1;
     public final int x2;
     public final int y2;
-    InputBehavior ib;
+    private final InputBehavior ib;
 
     public ShipCoordinate(InputBehavior injectedBehavior) {
         ib = injectedBehavior;

@@ -11,11 +11,11 @@ import ShotResults.SunkResult;
 
 
 public class Game { //Singleton!
-    boolean gameState;
-    private OceanGrid og;
-    private TargetGrid tg;
+    private boolean gameState;
+    private final OceanGrid og;
+    private final TargetGrid tg;
 
-    HumanPlayer human; cpuPlayer cpu;
+    private final HumanPlayer human; private final cpuPlayer cpu;
 
     public Game() {
         gameState = true;
@@ -31,7 +31,7 @@ public class Game { //Singleton!
         runGameRandom();
     }
 
-    public void runGameRandom(){
+    private void runGameRandom(){
         Random rand = new Random();
         int decider = rand.nextInt(2);
         if (decider == 0) {
@@ -40,7 +40,7 @@ public class Game { //Singleton!
         else{runGameHumanBegins();}
     }
 
-    public void runGameHumanBegins(){
+    private void runGameHumanBegins(){
         System.out.println("You begin!");
         while (gameState) {
             humanTurn();
@@ -48,8 +48,9 @@ public class Game { //Singleton!
                 System.out.println("Game over! You won.");
                 break;
             }
+            System.out.println("CPU is preparing for attack...");
             try{
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             }
             catch(InterruptedException ex)
             {
@@ -62,29 +63,31 @@ public class Game { //Singleton!
         }
     }
 
-    public void runGameCpuBegins(){
+    private void runGameCpuBegins(){
         System.out.println("CPU begins!");
         while (gameState) {
             cpuTurn();
             if (! gameState){
-                System.out.println("Game over! CPU won..");
+                System.out.println("Game over! CPU won.");
                 break;
             }
             humanTurn();
             if (! gameState){
                 System.out.println("Game over! You won!!!!");
             }
+            System.out.println("CPU is preparing for attack...");
             try{
-                Thread.sleep(5000);
+                Thread.sleep(3000);
             }
             catch(InterruptedException ex)
             {
                 ex.printStackTrace();
             }
+
         }
     }
 
-    public void humanTurn(){
+    private void humanTurn(){
         ShotCoordinate shotco = human.shoot();
         SunkResult sr = cpu.isSunk(shotco);
         if(sr.state == ShotStates.HIT || sr.state == ShotStates.MISS) {
@@ -99,7 +102,7 @@ public class Game { //Singleton!
         gameState = cpu.isAlive();
     }
 
-    public void cpuTurn(){
+    private void cpuTurn(){
         ShotCoordinate shotco = cpu.shoot();
         SunkResult sr = human.isSunk(shotco);
         if(sr.state == ShotStates.HIT || sr.state == ShotStates.MISS) {

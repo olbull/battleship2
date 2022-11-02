@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 // add design elements
 public class HumanBehavior implements InputBehavior {
-    HashMap<Character, Integer> reference = new HashMap<>();
+    private final HashMap<Character, Integer> reference = new HashMap<>();
 
     public HumanBehavior() {
         reference.put('A', 0); //HashMap wird hier gefüllt, da Coordinates.Coordinate.cpuBehavior diese nicht braucht(!) (und wir keine bessere Lösung haben...)
@@ -59,20 +59,20 @@ public class HumanBehavior implements InputBehavior {
                 }
             }
         }
-        if (output.get(0) == output.get(2) && output.get(1) == output.get(3)) {
+        if (output.get(0).equals(output.get(2)) && output.get(1).equals(output.get(3))) {
             System.out.println("Ship can not be placed in a single cell!\nTry again...\n");
             return generateShipCoordinate();
         }
-        if (output.get(0) != output.get(2) && output.get(1) != output.get(3)) {
+        if (! output.get(0).equals(output.get(2)) && ! output.get(1).equals(output.get(3))) {
             System.out.println("Ships need to be placed either horizontally or vertically!\nTry again...\n");
             return generateShipCoordinate();
         }
 
         // hier gilt für das Array entweder array[0] = array[2] (horizontal) oder array[1] = array[3] (vertikal)
-        if (output.get(0) == output.get(2) && output.get(1) > output.get(3)) {
+        if (output.get(0).equals(output.get(2)) && output.get(1) > output.get(3)) {
             Collections.swap(output,1,3);
         }
-        if (output.get(1) == output.get(3) && output.get(0) > output.get(2)) {
+        if (output.get(1).equals(output.get(3)) && output.get(0) > output.get(2)) {
             Collections.swap(output,0,2);
         }
         return output;

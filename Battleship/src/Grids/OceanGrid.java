@@ -4,7 +4,6 @@ public class OceanGrid extends Grid{
 
     public OceanGrid() {
         super();
-        char[][] gridStructure = new char[10][10];
     }
 
     protected void printHeader(){

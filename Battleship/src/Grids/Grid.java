@@ -7,8 +7,8 @@ import ShotResults.SunkResult;
 import java.util.HashMap;
 
 public abstract class Grid {
-    char[][] gridStructure = new char[10][10];
-    HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<>();
+    private final char[][] gridStructure = new char[10][10];
+    private final HashMap<ShotStates, java.lang.Character> gridSymbols = new HashMap<>();
 
     public Grid(){
         for (int i = 0; i < 10; i++){
@@ -35,7 +35,7 @@ public abstract class Grid {
 
     }
 
-    void printBody(){
+    private void printBody(){
         for (int i = 0; i < 10; i++){
             System.out.print(i + " |");
             for (int j = 0; j < 10; j++){
@@ -46,7 +46,7 @@ public abstract class Grid {
         }
     }
 
-    protected void printFoot(){
+    private void printFoot(){
         System.out.println("   ===================");
     }
 

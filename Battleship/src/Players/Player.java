@@ -11,7 +11,6 @@ public abstract class Player {
     Fleet fleet;
     protected ArrayList<ShotCoordinate> ShotsFired;
     protected InputBehavior ib;
-  //olbu attribut grid entfernt
 
     public ShotCoordinate shoot() { // returns object of type ShotCoordinate with coordinates in grid after adding it to ShotsFired
         ShotCoordinate shot = new ShotCoordinate(ib);
@@ -69,13 +68,7 @@ public abstract class Player {
                 }
             }
         }
-        /*
-        if (state == ShotStates.MISS){
-            if (this instanceof cpuPlayer){System.out.println("You missed at position " + transcord);}
-            else {System.out.println("CPU missed your fleet at position " + transcord);}
-        }
 
-         */
         return new SunkResult(state, null);
     }
 

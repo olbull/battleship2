@@ -2,15 +2,15 @@ package Ships;
 import Coordinate.*;
 
 public abstract class Ship {
-    public int length;
-    public char letter;
+    protected int length;
+    protected char letter;
     private int hits;
 
-    public ShipCoordinate coordinate;
+    private ShipCoordinate coordinate;
 
     public Ship() {
-        this.hits = 0;
-    }
+       this.hits = 0;
+   }
 
 
     public ShipCoordinate placeShip(InputBehavior ib){//olbu in allen schiffen diese methode entfernt
@@ -43,5 +43,9 @@ public abstract class Ship {
     }
     public ShipCoordinate getCoordinate() {
         return this.coordinate;
+    }
+
+    public char getLetter() {
+        return letter;
     }
 }

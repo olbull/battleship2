@@ -53,7 +53,7 @@ public class Fleet implements Iterable<Ships.Ship>{
 
 
 
-    public void initializeFleet(){
+    private void initializeFleet(){
         fleet.add(new Carrier());
         fleet.add(new BattleShip());
         fleet.add(new BattleShip());

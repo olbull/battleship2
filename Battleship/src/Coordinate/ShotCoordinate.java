@@ -1,12 +1,11 @@
 package Coordinate;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class ShotCoordinate extends Coordinate {
 
     public final int x; public final int y;
-    InputBehavior ib;
+    private final InputBehavior ib;
 
     public ShotCoordinate(InputBehavior injectedBehavior){
         this.ib = injectedBehavior;
