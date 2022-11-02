@@ -1,7 +1,5 @@
 package ShotResults;
-
 import Coordinate.ShotCoordinate;
-
 public class NotSunkResult extends ShotResult{
     public final ShotStates state;
     public final ShotCoordinate shotco;

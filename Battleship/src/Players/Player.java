@@ -1,27 +1,24 @@
 package Players;
 import Coordinate.*;
-import Grids.Grid;
 import Ships.*;
 import ShotResults.*;
-
 import Fleet.Fleet;
-import ShotResults.ShotResult;
 import ShotResults.ShotStates;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public abstract class Player {
     Fleet fleet;
     protected ArrayList<ShotCoordinate> ShotsFired;
     protected InputBehavior ib;
-
-    public Grid grid;
+  //olbu attribut grid entfernt
 
     public ShotCoordinate shoot() { // returns object of type ShotCoordinate with coordinates in grid after adding it to ShotsFired
         ShotCoordinate shot = new ShotCoordinate(ib);
         for (ShotCoordinate s : ShotsFired) {
             if (shot.equals(s)) {
-                System.out.println("You have already shot at this target!\nChoose another one...\n");
+                if (this instanceof HumanPlayer){
+                System.out.println("You have already shot at this target!\nChoose another one...\n");} //olbu
                 return shoot();
             }
         }
@@ -29,11 +26,31 @@ public abstract class Player {
         return shot;
     }
 
+    private HashMap<Integer, Character> getTranslator(){
+        HashMap<Integer, Character> translation = new HashMap<>();
+        translation.put(0, 'A');
+        translation.put(1, 'B');
+        translation.put(2, 'C');
+        translation.put(3, 'D');
+        translation.put(4, 'E');
+        translation.put(5, 'F');
+        translation.put(6, 'G');
+        translation.put(7, 'H');
+        translation.put(8, 'I');
+        translation.put(9, 'J');
+
+        return translation;
+    }
+
     public SunkResult isSunk(ShotCoordinate sc) {// sc is in grid and was not already shot i.e. valid
+        //String transcord = getTranslator().get(sc.x) + Integer.toString(sc.y);
         ShotStates state = ShotStates.MISS;
         for (Ship ship : this.fleet) {
             if (ship.isHit(sc)) {
                 state = ShotStates.HIT;
+                //if (this instanceof cpuPlayer){System.out.println("You were hit at position " + transcord);}
+                //else {System.out.println("You hit CPU at position " + transcord);}
+
                 if (ship.isSunk()) {
                     if (ship instanceof PatrolBoat) {
                         state = ShotStates.SUNKPB;
@@ -52,6 +69,13 @@ public abstract class Player {
                 }
             }
         }
+        /*
+        if (state == ShotStates.MISS){
+            if (this instanceof cpuPlayer){System.out.println("You missed at position " + transcord);}
+            else {System.out.println("CPU missed your fleet at position " + transcord);}
+        }
+
+         */
         return new SunkResult(state, null);
     }
 
@@ -61,6 +85,23 @@ public abstract class Player {
                 return true;
             }
         }
-        return false;}
+        return false;
+    }
+
+    public void declareShot(ShotStates state, ShotCoordinate sc){
+        String transcord = getTranslator().get(sc.x) + Integer.toString(sc.y);
+        if (state == ShotStates.HIT){
+            if (this instanceof cpuPlayer){
+                System.out.println("You were hit at position " + transcord + "!\n");}
+            else {System.out.println("You hit CPU at position " + transcord+"!\n");}
+        }
+        else {
+            if (this instanceof HumanPlayer) {
+                System.out.println("You missed at position " + transcord+".\n");
+            } else {
+                System.out.println("CPU missed your fleet at position " + transcord+".\n");
+            }
+        }
+    }
 }
 

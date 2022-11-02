@@ -6,7 +6,6 @@ import Coordinate.ShotCoordinate;
 import Players.*;
 import Grids.*;
 import ShotResults.NotSunkResult;
-import ShotResults.ShotResult;
 import ShotResults.ShotStates;
 import ShotResults.SunkResult;
 
@@ -23,9 +22,11 @@ public class Game { //Singleton!
 
         this.human = new HumanPlayer();
         this.cpu = new cpuPlayer();
+        System.out.println("Let's play a game of Battleship!\n");
 
-        og = human.placeFleet();
         tg = cpu.placeFleet();
+        og = human.placeFleet();
+
 
         runGameRandom();
     }
@@ -47,6 +48,13 @@ public class Game { //Singleton!
                 System.out.println("Game over! You won.");
                 break;
             }
+            try{
+                Thread.sleep(5000);
+            }
+            catch(InterruptedException ex)
+            {
+                ex.printStackTrace();
+            }
             cpuTurn();
             if (! gameState){
                 System.out.println("Game over! CPU won.");
@@ -59,12 +67,19 @@ public class Game { //Singleton!
         while (gameState) {
             cpuTurn();
             if (! gameState){
-                System.out.println("Game over! CPU won.");
+                System.out.println("Game over! CPU won..");
                 break;
             }
             humanTurn();
             if (! gameState){
-                System.out.println("Game over! You won.");
+                System.out.println("Game over! You won!!!!");
+            }
+            try{
+                Thread.sleep(5000);
+            }
+            catch(InterruptedException ex)
+            {
+                ex.printStackTrace();
             }
         }
     }
@@ -80,6 +95,7 @@ public class Game { //Singleton!
             tg.editArrayShip(sr);
         }
         tg.draw(); og.draw();
+        human.declareShot(sr.state, shotco);
         gameState = cpu.isAlive();
     }
 
@@ -94,14 +110,16 @@ public class Game { //Singleton!
             og.editArrayShip(sr);
         }
         tg.draw(); og.draw();
+        cpu.declareShot(sr.state, shotco);
         gameState = human.isAlive();
 
     }
-    public boolean playAgain(){
+
+    public static boolean playAgain(){
         System.out.println("Would you like play again? Type YES or NO...");
         Scanner InputScanner = new Scanner(System.in);
         String stringInput = InputScanner.nextLine();
-        if (stringInput == "YES"){
+        if (stringInput.equals("YES")){
             return true;
         }
         else{

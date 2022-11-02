@@ -1,5 +1,4 @@
 package ShotResults;
-
 import Coordinate.*;
 
 public class SunkResult extends ShotResult{

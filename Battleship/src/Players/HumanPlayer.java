@@ -1,14 +1,11 @@
 package Players;
-import Coordinate.HumanBehavior;
-import Coordinate.InputBehavior;
-import Coordinate.ShipCoordinate;
+import Coordinate.*;
 import Fleet.Fleet;
 import java.util.ArrayList;
-
 import Grids.OceanGrid;
 import Ships.Ship;
 
-import Coordinate.ShotCoordinate;
+
 
 
 public class HumanPlayer extends Player{
@@ -16,24 +13,29 @@ public class HumanPlayer extends Player{
     // Attribute isAlive?
 
     public HumanPlayer(){
-        this.ib = new HumanBehavior();
-        this.ShotsFired = new ArrayList<ShotCoordinate>();
-        this.grid = new OceanGrid();
+        this.ib = new cpuBehavior(); //new HumanBehavior();
+        this.ShotsFired = new ArrayList<>();
         this.fleet = new Fleet();
     }
 
     public OceanGrid placeFleet(){
+        System.out.println("This is your grid. ");
         OceanGrid og = new OceanGrid();
+        og.draw();
+        System.out.println("We'll begin by placing your fleet. Note that ships cannot be placed diagonally nor adjacent to each other...\n");
         for(Ship ship: fleet) {
-            ShipCoordinate temp = ship.placeShip(this.ib);
-            boolean control = fleet.placementControl(ship);
+            ship.placeShip(this.ib);
+            boolean control = fleet.placementControl(ship, this.ib); //olbu
+
             while(!control){
-                temp = ship.placeShip(this.ib);
-                control = fleet.placementControl(ship);
+                ship.placeShip(this.ib);
+                control = fleet.placementControl(ship, this.ib); //olbu
             }
             og.addShip(ship.getCoordinate(), ship.letter);
             og.draw();
+
         }
+        System.out.println("Alright, your fleet is ready for combat.");
         return og;
     }
 }

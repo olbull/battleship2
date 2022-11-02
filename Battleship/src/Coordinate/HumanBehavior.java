@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 // add design elements
 public class HumanBehavior implements InputBehavior {
-    HashMap<Character, Integer> reference = new HashMap<Character, Integer>();
+    HashMap<Character, Integer> reference = new HashMap<>();
 
     public HumanBehavior() {
         reference.put('A', 0); //HashMap wird hier gefüllt, da Coordinates.Coordinate.cpuBehavior diese nicht braucht(!) (und wir keine bessere Lösung haben...)
@@ -32,9 +32,9 @@ public class HumanBehavior implements InputBehavior {
     }
 @Override
     public ArrayList<Integer> generateShipCoordinate(){
-        ArrayList<Integer> output = new ArrayList<Integer>();
+        ArrayList<Integer> output = new ArrayList<>();
         Scanner InputScanner = new Scanner(System.in);
-        System.out.println("Enter coordinates, separated by comma.\nExample: A4,B4");
+        System.out.println("Enter coordinates, separated by a comma.\nExample: A4,B4");
         String stringInput = InputScanner.nextLine();
         char[] arrayInput = stringInput.toCharArray();
 
@@ -79,7 +79,7 @@ public class HumanBehavior implements InputBehavior {
     }
     @Override
     public ArrayList<Integer> generateShotCoordinate(){
-        ArrayList<Integer> output = new ArrayList<Integer>();
+        ArrayList<Integer> output = new ArrayList<>();
         Scanner InputScanner = new Scanner(System.in);
         System.out.println("Enter Coordinates:\nExample: A7");
         String stringInput = InputScanner.nextLine();
